@@ -17,11 +17,11 @@
 		 <link rel="stylesheet" href="//code.jquery.com/ui/1.10.1/themes/smoothness/jquery-ui.css">
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="src/css/layout.css" >
     <link rel="stylesheet" href="//js.arcgis.com/3.9/js/dojo/dijit/themes/claro/claro.css">
     <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.9/js/esri/css/esri.css">
 		<link rel="stylesheet" type="text/css" href="src/css/bootstrap-select.css">		
     <link rel="stylesheet" type="text/css" href="src/css/bootstrapmap.css">
+		<link rel="stylesheet" type="text/css" href="src/css/layout.css" >
     <link rel="stylesheet" type="text/css" href="src/agsjs/css/agsjs.css">
 		
     <link rel="apple-touch-icon" href="/bootstrap/img/apple-touch-icon.png">
@@ -63,53 +63,6 @@
         </div>
       </div>
     </div>
-		
-		<!-- Highlight a Area Modal -->
-		<div class="modal fade" id="highlightModal" tabindex="-1" style="display: none;" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title">Highlight anArea</h4>
-					</div>
-					<div class="modal-body">
-						<p style="font-weight:bold; font-size:16px"> Select a Single or Multiple Areas To Highlight</p>
-						<br/>
-						<table>
-						<tr>
-							<td>Game Animal Distributions: </td>
-							<td><select class="selectpicker" multiple title='--none--' id="gameDistribution">
-							</select></td>
-						</tr>	
-						</table>
-						<br/>
-						<input type="submit" id="btnQuery" data-dismiss="modal" value="Go">
-						<br/><br/>
-						<button id="btnClearHighlighted">Clear Highlighted Area</button>
-						<br/><br/>
-						<button class="btnClose" data-dismiss="modal">Close Window</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Download KML Modal -->
-		<div class="modal fade" id="kmlModal" tabindex="-1" style="display: none;" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title">Download Highlighted Area as KML</h4>
-					</div>
-					<div class="modal-body">
-						<strong>Click the link(s) below to download the highlighted areas you selected as a KML.</strong>
-						<br/><br/>
-						<a id="gameDistributionKML" class="KMLlink">SELECTED GAME DISTRIBUTION KML</a>
-						<br/><br/>
-						<button class="btnClose" data-dismiss="modal">Close Window</button>
-					</div>
-				</div>
-			</div>
-		</div>
 		<!-- Basemap Modal -->
 		<div class="modal fade" id="basemapModal" tabindex="-1" style="display: none;" aria-hidden="true">
 			<div class="modal-dialog">
@@ -156,6 +109,80 @@
 						</div>
 						<br/></br/>
 						<button class="btnClose" data-dismiss="modal">Close Basemap Window</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Highlight an Area Modal -->
+		<div class="modal fade" id="highlightModal" tabindex="-1" style="display: none;" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Highlight an Area</h4>
+					</div>
+					<div class="modal-body">
+						<p style="font-weight:bold; font-size:16px"> Select a Single or Multiple Areas To Highlight</p>
+						<br/>
+						<table>
+						<tr>
+							<td>Game Animal Distributions: </td>
+							<td><select class="selectpicker" multiple title='--none--' id="gameDistribution">
+							</select></td>
+						</tr>	
+						</table>
+						<br/>
+						<input type="submit" id="btnQuery" data-dismiss="modal" value="Go">
+						<br/><br/>
+						<button id="btnClearHighlighted">Clear Highlighted Area</button>
+						<br/><br/>
+						<button class="btnClose" data-dismiss="modal">Close Window</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Download KML Modal -->
+		<div class="modal fade" id="kmlModal" tabindex="-1" style="display: none;" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Download Highlighted Area as KML</h4>
+					</div>
+					<div class="modal-body">
+						<strong>Click the link(s) below to download the highlighted areas you selected as a KML.</strong>
+						<br/><br/>
+						<a id="gameDistributionKML" class="KMLlink">SELECTED GAME DISTRIBUTION KML</a>
+						<br/><br/>
+						<button class="btnClose" data-dismiss="modal">Close Window</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Upload Waypoints & Tracks Modal -->
+		<div class="modal fade" id="uploadModal" tabindex="-1" style="display: none;" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Upload Waypoints & Tracks from GPX files</h4>
+					</div>
+					<div class="modal-body">
+						<p>Add your own location data, such as GPS waypoints and tracks.  If you data is in another format such as kml, shp, txt, csv, wpt, dat, or some other GPS specific file type you may find <a href="http://www.gpsvisualizer.com/" target="_blank">GPS Visualizer</a> or <a href="http://www.gpsbabel.org/" target="_blank">GPSBabel</a> helpful tools for converting them to GPX.</p>
+						<br/>
+						<form enctype="multipart/form-data" method="post" id="uploadForm">
+							<div class="field">
+									<span><strong>Upload file</strong></span>
+									<label class="file-upload">
+											<input type="file" name="file" id="inFile"/>
+									</label>
+							</div>
+						</form>
+						<span class="file-upload-status" style="opacity:1;" id="upload-status"></span>		
+						<br/><br/>
+						<button id="btnClearUpload" data-dismiss="modal">Clear Uploaded GPX Files</button>
+						<br/><br/>
+						<button class="btnClose" data-dismiss="modal">Close Window</button>
 					</div>
 				</div>
 			</div>
@@ -287,51 +314,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- How To Modal -->
-		<div class="modal fade" id="helpModal" tabindex="-1" style="display: none;" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title">How To Use the Map Center Toolbar</h4>
-					</div>
-					<div class="modal-body">
-							 <strong>Use the toolbar located on the lefthand side of the map to modify the maps appearance and access tools for measuring, drawing and printing.</strong>
-								
-								<h4><i class="glyphicon glyphicon-flash"></i> Highlight an Area</h4>
-								<p>Select an area from the list and the map will zoom and highlight the boundary.</p>
-
-								<h4><i class="glyphicon glyphicon-list"></i> Turn Layers On/Off</h4>
-								<p>Using the checkboxes, you may turn on and off layers of administrative boundaries, land management overlay, trails, and campgrounds.  Use the slider above each layer group to modify the transparency.<br/>								
-								<em>NOTE: Some layers (depending on the data source and your network speed) may take some time to render.</em></p>
-								
-								<h4><i class="glyphicon glyphicon-globe"></i> Change the Basemap</h4>
-								<p>You may select from a number of basemaps including ArcGIS aerial imagery, terrain, topographic and street maps and Google roads, satellite, hybrid, and terrain.  When creating a PDF/PNG, please choose a non-Google basemap.</p>
-								
-								<h4><i class="glyphicon glyphicon-search"></i> Place or Coordinate Search</h4>
-								<p>Type a place into the place search box or coordinates in the longitude/latitude boxes and click <em>Go/Go to Coordinates</em>.  The map will automatically zoom to the location. Coordinates will be labeled with the longitude/latitude. You may be use the clear buttons to clear the points graphics off the map.</p>
-								
-								<h4><i class="glyphicon glyphicon-screenshot"></i> Measurements &amp; Coordinates</h4>
-								<p>First, select your tool - Area, Distance, or Location.  Then, select the units you would like the results to be in (acres, sq miles, ...miles, meters,...degrees, DMS (degrees minutes seconds). Finally, close the Measurement window and begin taking measurements. Measurement results will appear in the lower right and the modal window which you may reopen.  Double-click to close polygons if measuring for area.</p>
-								
-							 <h4><i class="glyphicon glyphicon-pencil"></i> Draw On the Map</h4>
-								<p>Select a draw tool and the window will automatically close and you can begin adding shapes to your map to highlight an area or specify a certain point.  Double click to close polygons. To add a text label to your map, first add the text you would like to appear in the textbox after <em>Add text to your map</em> and then click the <em>Add Text</em> button.  Click on the map to add the label.</p>
-								
-								<h4><i class="glyphicon glyphicon-print"></i> Creat Printable PDF</h4>
-								<p>Create a printable version of your customized map in Adobe's Portable Document Format (PDF) or as an image (PNG). You may add a custom title, select a layout, select a print format, and then click <em>Create Map!</em> to open the map in a new window.  Depending on the browser and PDF plug-in you are using, there are a number of ways to save/print the PDF/PNG by either using the browser menu or saving the PDF/PNG.<br/>						
-								<em>NOTE: Some maps (depending on the data source and your network speed) may take some time to render.</em></p>
-								
-								<h4><i class="glyphicon glyphicon-envelope"></i> Contact Us</h4>
-								<p>Have a question/comment/complaint about the Application? <a href="https://fishandgame.idaho.gov/ifwis/portal/contact#" title="Send us a note">Contact Us</a>! Any feedback (good or bad) is greatly appreciated.</p>
-								
-								<!-- AUTHOR HELP DOCUMENTATION!!! How to: Download HelpNDoc http://www.helpndoc.com/download. Open the'AppHelpDoc.hnd file that is included in the template folder. Modify the verbages and images to meet up application's needs. If you need help modifying the help doc, Pam Bond can help you. After you have made your modifications, click 'Generate help' from the Home Ribbon. Just put a check next to 'Build html documentation. Click 'Generate'. Copy the files from the html documentation build folder and paste it into your application 'HelpDocFiles' folder. Edit the URL below to point to your html help doc. Uncomment the paragraph below. -->
-								<!-- UNCOMMENT ME AFTER YOU CREATED A HELP DOC <p>For more in-depth help documentation <strong><a href="http://fishandgame.idaho.gov/ifwis/huntplanner/mapcenter/HelpDoc/IDFG%20Hunt%20Planner%20Map%20Center%20Help%20Documentation.html" target="_blank">Click here</a></strong>.</p> -->
-								
-								<button class="btnClose" data-dismiss="modal">Close How To Window</button>
-					</div>
-				</div>
-			</div>
-		</div>
 		<!-- Share Modal -->
 		<div class="modal fade" id="shareModal" tabindex="-1" style="display: none;" aria-hidden="true">
 			<div class="modal-dialog">
@@ -346,6 +328,56 @@
 						<div id="viewURL"></div>
 						</br>
 						<button class="btnClose" data-dismiss="modal">Close Share Window</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- How To Modal -->
+		<div class="modal fade" id="helpModal" tabindex="-1" style="display: none;" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">How To Use the Map Center Toolbar</h4>
+					</div>
+					<div class="modal-body">
+							 <strong>Use the toolbar located on the lefthand side of the map to modify the maps appearance and access tools for measuring, drawing and printing.</strong>
+								
+								<h4><i class="glyphicon glyphicon-list"></i> Turn Layers On/Off</h4>
+								<p>Using the checkboxes, you may turn on and off layers of administrative boundaries, land management overlay, trails, and campgrounds.  Use the slider above each layer group to modify the transparency.<br/>								
+								<em>NOTE: Some layers (depending on the data source and your network speed) may take some time to render.</em></p>
+								
+								<h4><i class="glyphicon glyphicon-globe"></i> Change the Basemap</h4>
+								<p>You may select from a number of basemaps including ArcGIS aerial imagery, terrain, topographic and street maps and Google roads, satellite, hybrid, and terrain.  When creating a PDF/PNG, please choose a non-Google basemap.</p>
+								
+								<h4><i class="glyphicon glyphicon-flash"></i> Highlight an Area</h4>
+								<p>Select an area from the list and the map will zoom and highlight the boundary in purple.</p>
+								
+								<h4><i class="glyphicon glyphicon-floppy-save"></i> Download Highlighted Area as KML</h4>
+								<p>After you have selected an area to highlight, this tool will be activated. Open the tool and click the hyperlink(s) to download Google Earth KML of the area you highlighted.</p>
+								
+								<h4><i class="glyphicon glyphicon-floppy-open"></i> Upload Waypoints &amp; Tracks</h4>
+								<p>If you would like to add your own location data, such as GPS waypoints and tracks, upload them as a GPX file using this tool.  If you data is in another format such as kml, shp, txt, csv, wpt, dat, or some other GPS specific file type you may find <a href="http://www.gpsvisualizer.com/" target="_blank">GPS Visualizer</a> or <a href="http://www.gpsbabel.org/" target="_blank">GPSBabel</a> helpful tools for converting them to GPX.</p>
+								
+								<h4><i class="glyphicon glyphicon-search"></i> Coordinate or Place Search</h4>
+								<p>Type a place into the place search box or coordinates in the longitude/latitude boxes and click <em>Go/Go to Coordinates</em>.  The map will automatically zoom to the location. Coordinates will be labeled with the longitude/latitude. You may be use the clear buttons to clear the points graphics off the map.</p>
+								
+								<h4><i class="glyphicon glyphicon-screenshot"></i> Measurements &amp; Coordinates</h4>
+								<p>First, select your tool - Area, Distance, or Location.  Then, select the units you would like the results to be in (acres, sq miles, ...miles, meters,...degrees, DMS (degrees minutes seconds). Finally, close the Measurement window and begin taking measurements. Measurement results will appear in the lower right and the modal window which you may reopen.  Double-click to close polygons if measuring for area.</p>
+								
+							 <h4><i class="glyphicon glyphicon-pencil"></i> Draw On the Map</h4>
+								<p>Select a draw tool and the window will automatically close and you can begin adding shapes to your map to highlight an area or specify a certain point.  Double click to close polygons. To add a text label to your map, first add the text you would like to appear in the textbox after <em>Add text to your map</em> and then click the <em>Add Text</em> button.  Click on the map to add the label.</p>
+								
+								<h4><i class="glyphicon glyphicon-print"></i> Creat Printable PDF</h4>
+								<p>Create a printable version of your customized map in Adobe's Portable Document Format (PDF) or as an image (PNG). You may add a custom title, select a layout, select a print format, and then click <em>Create Map!</em> to open the map in a new window.  Depending on the browser and PDF plug-in you are using, there are a number of ways to save/print the PDF/PNG by either using the browser menu or saving the PDF/PNG. It may take some time to generate the PDF/PNG.</p>
+								
+								<h4><i class="glyphicon glyphicon-envelope"></i> Contact Us</h4>
+								<p>Have a question/comment/complaint about the application? <a href="https://fishandgame.idaho.gov/ifwis/portal/contact#" title="Send us a note">Contact Us</a>! Any feedback (good or bad) is greatly appreciated.</p>
+								
+								<!-- AUTHOR HELP DOCUMENTATION!!! How to: Download HelpNDoc http://www.helpndoc.com/download. Open the'AppHelpDoc.hnd file that is included in the template folder. Modify the verbages and images to meet up application's needs. If you need help modifying the help doc, Pam Bond can help you. After you have made your modifications, click 'Generate help' from the Home Ribbon. Just put a check next to 'Build html documentation. Click 'Generate'. Copy the files from the html documentation build folder and paste it into your application 'HelpDocFiles' folder. Edit the URL below to point to your html help doc. Uncomment the paragraph below. -->
+								<!--UNCOMMENT ME AFTER YOU CREATED A HELP DOC <p>For more in-depth help documentation <strong><a href="http://fishandgame.idaho.gov/ifwis/devel/IDFG-BootstrapAppTemplate/HelpDocFiles/Help%20Documentation.html" target="_blank">Click here</a></strong>.</p> -->
+								
+								<button class="btnClose" data-dismiss="modal">Close How To Window</button>
 					</div>
 				</div>
 			</div>
@@ -379,32 +411,52 @@
 											</span>	
 										</div>
 									</div>
+									<div id="uploadLabelDiv" class="agsjsTOCNode" style="display: none;">
+										<div class="agsjsTOCServiceLayer" data-dojo-attach-event="onclick:_onClick" data-dojo-attach-point="rowNode">
+											<span class="agsjsTOCContent" data-dojo-attach-point="contentNode">
+												<span data-dojo-attach-point="checkContainerNode">
+													<input id="uploadCheckbox" type="checkbox" style="margin-left:-10px;" ></input>
+												</span>
+												<label for="uploadCheckbox" style="font-size:15px; margin-bottom:5px"> Uploaded GPX Files </label>
+												<div id="uploadLabel1Div"  style="display: none; margin-left:27px;">
+													<img class="agsjsTOCIcon" data-dojo-attach-point="iconNode" src="src/images/WaypointIMG.png"/>
+													<span id="uploadLabel1" class="agsjsTOCServiceLayerLabel" data-dojo-attach-point="labelNode">Waypoints</span>
+												</div>
+												<div id="uploadLabel2Div"  style="display: none; margin-left:27px;">
+													<img class="agsjsTOCIcon" data-dojo-attach-point="iconNode" src="src/images/TrackIMG.png"/>
+													<span id="uploadLabel2" class="agsjsTOCServiceLayerLabel" data-dojo-attach-point="labelNode">Tracks</span>
+												</div>
+											</span>	
+										</div>
+									</div>
 								</div>	
 								<div id="tocDiv"></div>
 							</div>
+							<li><a id="basemapNav1"><i class="glyphicon glyphicon-globe"></i> Change the Basemap</a></li>
 							<li><a id="highlightNav1"><i class="glyphicon glyphicon-flash"></i> Highlight an Area</a></li>
 							<li><a id="kmlNav1" style="display: none;"><i class="glyphicon glyphicon-floppy-save"></i> Download Highlighted Area as KML</a></li>
-							<li><a id="basemapNav1"><i class="glyphicon glyphicon-globe"></i> Change the Basemap</a></li>
-							<li><a id="geosearchNav1"><i class="glyphicon glyphicon-search"></i> Place or Coordinate Search</a></li>
+							<li><a id="uploadNav1"><i class="glyphicon glyphicon-floppy-open"></i> Upload Waypoints & Tracks</a></li>
+							<li><a id="geosearchNav1"><i class="glyphicon glyphicon-search"></i> Coordinate or Place Search</a></li>
 							<li><a id="measurementNav1"><i class="glyphicon glyphicon-screenshot"></i> Measurements &amp; Coordinates</a></li>
 							<li><a id="drawNav1"><i class="glyphicon glyphicon-pencil"></i> Draw On the Map</a></li>
 							<li><a id="pdfNav1"><i class="glyphicon glyphicon-print"></i> Create Printable Map</a></li>
-							<li><a id="helpNav1"><i class="glyphicon glyphicon-question-sign"></i> How To...</a></li>
 							<li><a id="shareNav1"><i class="glyphicon glyphicon-send"></i> Share the Map View</a></li>
+							<li><a id="helpNav1"><i class="glyphicon glyphicon-question-sign"></i> How To...</a></li>
 					</ul>					 
 				
 				<!-- tiny tool nav-->
 				<ul class="nav visible-xs" id="xs-menu">
 						<li><a id="legendNav2" title="Turn Layers On/Off" class="masterTooltip"><i class="glyphicon glyphicon-list"></i></a></li>
+						<li><a id="basemapNav2" title="Change the Basemap" class="masterTooltip"><i class="glyphicon glyphicon-globe"></i></a></li>
 						<li><a id="highlightNav2" title="Highlight an Area" class="masterTooltip"><i class="glyphicon glyphicon-flash"></i></a></li>
 						<li><a id="kmlNav2" title="Download Highlighted Area as KML" class="masterTooltip" style="display: none;"><i class="glyphicon glyphicon-floppy-save"></i></a></li>
-						<li><a id="basemapNav2" title="Change the Basemap" class="masterTooltip"><i class="glyphicon glyphicon-globe"></i></a></li>
-						<li><a id="geosearchNav2" title="Place or Coordinate Search" class="masterTooltip"><i class="glyphicon glyphicon-search"></i></a></li>
+						<li><a id="uploadNav1" title="Upload Waypoints & Tracks" class="masterTooltip"><i class="glyphicon glyphicon-floppy-open"></i></a></li>
+						<li><a id="geosearchNav2" title="Coordinate or Place Search" class="masterTooltip"><i class="glyphicon glyphicon-search"></i></a></li>
 						<li><a id="measurementNav2" title="Measurements & Coordinates" class="masterTooltip"><i class="glyphicon glyphicon-screenshot"></i></a></li>
 						<li><a id="drawNav2" title="Draw On the Map" class="masterTooltip"><i class="glyphicon glyphicon-pencil"></i></a></li>
 						<li><a id="pdfNav2" title="Create Printable Map" class="masterTooltip"><i class="glyphicon glyphicon-print"></i></a></li>
+						<li><a id="shareNav2" title="Share the Map View" class="masterTooltip"><i class="glyphicon glyphicon-send"></i></a></li>
 						<li><a id="helpNav2" title="How To..." class="masterTooltip"><i class="glyphicon glyphicon-question-sign"></i></a></li>
-						<li><a id="shareNav1" title="Share the Map View" class="masterTooltip"><i class="glyphicon glyphicon-send"></i></a></li>
 				</ul>			
 			</div>
 		<!-- /sidebar -->
