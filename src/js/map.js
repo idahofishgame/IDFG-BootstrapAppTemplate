@@ -1109,7 +1109,10 @@
 				$("body").css("margin-right","0px");
 				$(".navbar").css("margin-right","0px");
 			});
-			
+						// disclaimer is clicked
+			$("#disclaimer").click(function(e){
+				$("#disclaimerModal").modal("show");
+			});
 			// off-canvas sidebar toggle
 			$('[data-toggle=offcanvas]').click(function() {
 					$(this).toggleClass('visible-xs text-center');
