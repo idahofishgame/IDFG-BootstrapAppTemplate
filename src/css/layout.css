@@ -314,7 +314,8 @@ input[type=checkbox] {
 }
 
 #main {
-	padding-right: 0px !important;
+	padding: 0px;
+	border-left: 3px solid #677054
 }
 
 #sidebar {
