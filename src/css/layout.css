@@ -59,7 +59,7 @@ img.ri:empty {
 #LocateButton {
 	position: absolute;
 	top: 75px;
-	left: 21px;
+	left: 6px;
 	z-index: 50;
 }
 
@@ -314,7 +314,8 @@ input[type=checkbox] {
 }
 
 #main {
-	padding-right: 0px !important;
+	padding: 0px;
+	border-left: 3px solid #677054
 }
 
 #sidebar {
